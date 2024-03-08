@@ -1,5 +1,6 @@
 from main import menu as god_menu, shell_sort_vector as shell
 from datetime import datetime, timedelta
+import random
 n_1 = 5
 n_2 = 1
 # n_2 = "1"
@@ -49,3 +50,15 @@ inicio = timedelta(200, 100, 333, weeks=12)
 final = timedelta(440, 111, 333, weeks=15)
 print(final - inicio)
 print(final + inicio)
+
+
+def generar_randon():
+    i = random.randint(0, 100)
+    return i
+
+
+lista = [generar_randon() for i in range(10)]
+'''
+lista = [generar_randon() for i in range(generar_randon())]  # genera una lista de largo random con elementos random 
+'''
+print(lista)

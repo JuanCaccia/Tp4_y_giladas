@@ -40,3 +40,12 @@ mi_cumple = datetime(2024, 3, 31)
 
 print_dia(mi_cumple)
 
+
+diff = mi_cumple - now  # Haciendo esto se podria saber el restante de dias hasta una fecha concreta
+print(diff)
+
+# el timedelta se utiliza mas que naada para estableces franjas de tiempo no tanto fechas
+inicio = timedelta(200, 100, 333, weeks=12)
+final = timedelta(440, 111, 333, weeks=15)
+print(final - inicio)
+print(final + inicio)

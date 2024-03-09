@@ -79,3 +79,15 @@ def primo():
 
 
 primo()
+
+
+def voltear_texto(texto):
+
+    volteao = ""
+    for x in range(0, len(texto)):
+        volteao += texto[len(texto) - x - 1]
+
+    return volteao
+
+
+print(voltear_texto("Pinga de mono"))

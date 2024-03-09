@@ -62,3 +62,18 @@ lista = [generar_randon() for i in range(10)]
 lista = [generar_randon() for i in range(generar_randon())]  # genera una lista de largo random con elementos random 
 '''
 print(lista)
+
+
+def primo():
+    for i in range(1, 101):
+        divisible = False
+
+        for x in range(2, i):
+            if i % x == 0:
+                divisible = True
+
+        if not divisible:
+            print(i)
+
+
+primo()

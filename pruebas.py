@@ -64,7 +64,7 @@ lista = [generar_randon() for i in range(generar_randon())]  # genera una lista 
 print(lista)
 
 
-# saber los numeros primos en un rango determinado
+# saber los numeros primos en un rango determinadoh
 def primo():
     for i in range(1, 101):
         divisible = False

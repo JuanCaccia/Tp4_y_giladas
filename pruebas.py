@@ -92,3 +92,27 @@ def voltear_texto(texto):
 
 
 print(voltear_texto("Pinga de mono"))
+
+
+# closures
+
+def sum_10(otro_num):  # Una funcion
+    def sumar(num):  # que define otra funcion
+        return num + 10 + otro_num
+    return sumar  # Y la retorna
+
+
+suma_closures = sum_10(20)  # en esta variable se guarda funcion que retorna sum_10
+print(suma_closures(30))  # por eso se le tiene que pasar un parametro
+
+
+'''
+def sum_10():  # Una funcion
+    def sumar(num):  # que define otra funcion
+        return num + 10
+    return sumar  # Y la retorna
+
+
+suma_closures = sum_10()  # en esta variable se guarda funcion que retorna sum_10
+print(suma_closures(30))  # por eso se le tiene que pasar un parametro
+'''

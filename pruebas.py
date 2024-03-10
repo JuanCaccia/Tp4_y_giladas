@@ -5,7 +5,7 @@ n_1 = 5
 n_2 = 1
 # n_2 = "1"
 
-vector = [49, 73, 11, 30, 82, 67, 5, 91, 62, 14, 20, 33, 55, 88, 42, 97, 2, 78, 60, 25]
+numeros = [49, 73, 11, 30, 82, 67, 5, 91, 62, 14, 20, 33, 55, 88, 42, 97, 2, 78, 60, 25]
 
 try:
     print("pindongan´t")
@@ -20,7 +20,7 @@ except Exception as error:
     print(error) 
 '''
 # god_menu()
-print(shell(vector))
+print(shell(numeros))
 
 now = datetime.now()
 
@@ -102,8 +102,7 @@ def sum_10(otro_num):  # Una funcion
     return sumar  # Y la retorna
 
 
-suma_closures = sum_10(20)  # en esta variable se guarda funcion que retorna sum_10
-print(suma_closures(30))  # por eso se le tiene que pasar un parametro
+print(sum_10(40)(20))  # otra forma de llamar teniendo un closure
 
 
 '''
@@ -116,3 +115,24 @@ def sum_10():  # Una funcion
 suma_closures = sum_10()  # en esta variable se guarda funcion que retorna sum_10
 print(suma_closures(30))  # por eso se le tiene que pasar un parametro
 '''
+
+
+# Map: necesita simpre un conjuto iterable para recorrerlo y modificarlo segun la funcion que le pasamos
+def triplicar(numero):
+    return numero * 3
+
+
+print(list(map(triplicar, numeros)))
+
+# Filter: Necesita un conjunto iterable para recorrerlo y seleccionar un elelmneto
+# segun obtenga un true o false de la funcion que le pasamos
+
+
+def menor_50(numero):
+    if numero < 50:
+        return True
+    return False
+
+
+print(list(filter(menor_50, numeros)))
+

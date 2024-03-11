@@ -1,0 +1,11 @@
+{
+    "Nombre": "Juan",
+    "Apellido": "Caccia",
+    "Edad": 19,
+    "Apodo": "GODinez",
+    "Hobies": [
+        "Leer",
+        "Ir al gym",
+        "Rodar la caprichosa"
+    ]
+}

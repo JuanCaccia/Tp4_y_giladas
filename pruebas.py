@@ -1,11 +1,12 @@
 from main import menu as god_menu, shell_sort_vector as shell
 from datetime import datetime, timedelta
 import random, json, csv, re
+import numpy as np
 n_1 = 5
 n_2 = 1
 # n_2 = "1"
 
-numeros = [49, 73, 11, 30, 82, 67, 5, 91, 62, 14, 20, 33, 55, 88, 42, 97, 2, 78, 60, 25]
+numeros = [49, 73, 11, 30, 82, 67, 5, 91, 62, 14, 20, 33, 55, 88, 42, 97, 2, 78, 60, 25, 44]
 
 try:
     print(f"las suma es: {n_1 + n_2}")
@@ -247,7 +248,7 @@ with open("texto.csv", "r+") as lectura_csv:
 # Expresiones regulares (Se importa "re")
 
 un_string = "este es un string String, xd XD"
-otro_string = "este no es un string, xdn't xdn't"
+otro_string = "este no es un string, xdn't xdn't, es el 5to string"
 
 
 print(re.match("este es", un_string))  # empieza a mirar desde el comienzo del string
@@ -289,3 +290,102 @@ print(re.sub("[s|S]tring", "string",  un_string))
 pattern = r"[s|S]tring|xd"
 
 print(re.findall(pattern, un_string))  # Le estamos pasando los patrones que queremos buscar
+
+print(re.findall("[0-9]", otro_string))
+# pattern = r"[0-9]"
+# print(re.findall(pattern, otro_string))
+
+
+pattern = r"\d"  # Busca todos los numeros
+print(re.findall(pattern, otro_string))
+
+pattern = r"\D"  # Busca todos los caracteres
+print(re.findall(pattern, otro_string))
+
+# Validacion de email
+
+email = "juanmacaccia@gmail.com"
+# email = "juanmacaccia@gmail"  # en este caso como falta la continuacion despues de un '.' no lo toam como un email
+# email = "juanmacaccia@gmail."  #lo mismo pero ddeberia haber algo despues del '.'
+# pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  # con el '^' indica que comienza con eso, con el '+@' indica que despues sigue un '@' y los caracteres que se le indica, coon el '\.' indica que escapa a todos los caracteres excepto los que se les indica, en '$' tiene en cuenta todo lo que esta despues del '.'
+pattern = r"^([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.(?:com|com.ar))"
+
+"""
+MEjor pagina para expresiones regulares:
+https://regex101.com
+NO hay que pasarle la 'r' ni las comillas
+"""
+print(re.findall(pattern, email))
+print(re.match(pattern, email))
+print(re.search(pattern, email))
+
+
+'''
+    []: A set of characters
+    
+    [a-c] means, a or b or c
+    
+    [a-z] means, any letter from a to z
+    
+    [A-Z] means, any character from A to Z
+    
+    [0-3] means, 0 or 1 or 2 or 3
+    
+    [0-9] means any number from 0 to 9
+    
+    [A-Za-z0-9] any single character, that is a to z, A to Z or 0 to 9
+    
+    \: uses to escape special characters
+    
+    \d means: match where the string contains digits (numbers from 0-9)
+    
+    \D means: match where the string does not contain digits
+    
+    . : any character except new line character(\n)
+    
+    ^: starts with
+    
+    r'^substring' eg r'^love', a sentence that starts with a word love
+    
+    r'[^abc] means not a, not b, not c.
+    
+    $: ends with
+    
+    r'substring$' eg r'love$', sentence that ends with a word love
+    
+    *: zero or more times
+    
+    r'[a]*' means a optional or it can occur many times.
+    
+    +: one or more times
+    
+    r'[a]+' means at least once (or more)
+    
+    ?: zero or one time
+    
+    r'[a]?' means zero times or once
+    
+    {3}: Exactly 3 characters
+    
+    {3,}: At least 3 characters
+    
+    {3,8}: 3 to 8 characters
+    
+    |: Either or
+    
+    r'apple|banana' means either apple or a banana
+    
+    (): Capture and group
+'''
+
+
+# Manejo de arhivos y paquetes (corte tu vieja)
+# con https://pypi.org
+
+numpy = np.version.version
+
+numpy_arrays = np.array(numeros)
+
+print(numeros * 2)
+print(numpy_arrays * 2)  # Trabaja con toda la lista sin tener que iterarla anacheiiiiiii
+print(np.split(numpy_arrays, 3))  # divide en partes iguales solo si es posible

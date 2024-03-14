@@ -1,6 +1,6 @@
 from main import menu as god_menu, shell_sort_vector as shell
 from datetime import datetime, timedelta
-import random, json
+import random, json, csv, re
 n_1 = 5
 n_2 = 1
 # n_2 = "1"
@@ -200,6 +200,8 @@ with open("texto.txt", "r+") as leer_texto:
     for x in leer_texto:
         print(x[:-1])
 
+# json
+
 
 json_texto = open("texto.json", "r+")
 
@@ -223,3 +225,67 @@ json_dict = json.load(open("texto.json", "r+"))
 print(json_dict)
 
 print(json_dict["Nombre"])
+
+
+# csv ,se importa csv
+
+arch_csv = open("texto.csv", "r+")
+
+writer = csv.writer(arch_csv)
+
+writer.writerow(["juan", "Caccia", 19, "ING"])
+writer.writerow(["pedro", "pedroide", 19.3, "ING"])
+writer.writerow(["pepinho", "", "", "soccer player"])
+
+arch_csv.close()
+
+with open("texto.csv", "r+") as lectura_csv:
+    for line in lectura_csv:
+        print(line[:-1])
+
+
+# Expresiones regulares (Se importa "re")
+
+un_string = "este es un string String, xd XD"
+otro_string = "este no es un string, xdn't xdn't"
+
+
+print(re.match("este es", un_string))  # empieza a mirar desde el comienzo del string
+print(re.match("xd", un_string, re.I))
+
+'''
+re.A (ASCII-only matching)
+re.I (ignore case)
+re.L (locale dependent)
+re.M (multi-line)
+re.S (dot matches all)
+re.U (Unicode matching)
+re.X (verbose)
+'''
+
+matcheao = re.match("Este NO", otro_string, re.I)
+
+print(matcheao.span())  # Con el .span() tenemos el rango en el que se encuentra dicha cadena de texto
+print(otro_string[0:7])
+
+'''
+start, end = matcheao.span()
+print(otro_string[start:end])
+'''
+
+print(re.search("xd", un_string, re.I))  # Este busca en cualquier parte del texto
+print((re.search("xd", un_string, re.I)).span())
+
+print(re.findall("xd", un_string, re.I))  # Este cuenta la cantidad de veces que se encontro y los mete en una lista
+print(len(re.findall("xd", un_string, re.I)))
+
+print(re.split(",", un_string))  # Separa ,segun el simbolo que se le indique, dentro de una lista
+
+print(re.sub("este no", "este si que no",  otro_string))
+print(re.sub("xd|XD", "xdn't",  un_string))
+print(re.sub("[s|S]tring", "string",  un_string))
+
+
+pattern = r"[s|S]tring|xd"
+
+print(re.findall(pattern, un_string))  # Le estamos pasando los patrones que queremos buscar
